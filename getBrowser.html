@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>getBrowser</title>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="jquery-2.1.4.js"></script>
+</head>
+<body>
+	<div id="browser" style="font-size: 20px;"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#browser").text("当前浏览器： " + getBrowser());
+		});
+		function getBrowser() {
+			var browser = {};
+			var ua = navigator.userAgent.toLowerCase();
+			var s;(s = ua.match(/msie ([\d.]+)/)) ? browser.ie = s[1] : (s = ua.match(/firefox\/([\d.]+)/)) ? browser.firefox = s[1] : (s = ua.match(/chrome\/([\d.]+)/)) ? browser.chrome = s[1] : (s = ua.match(/opera.([\d.]+)/)) ? browser.opera = s[1] : (s = ua.match(/version\/([\d.]+).*safari/)) ? browser.safari = s[1] : 0;
+			return browser;
+		}
+	</script>
+</body>
