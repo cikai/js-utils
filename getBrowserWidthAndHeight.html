@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>getBrowserWidthAndHeight</title>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="jquery-2.1.4.js"></script>
+</head>
+<body>
+	<div id="width" style="font-size: 20px;"></div>
+	<div id="height" style="font-size: 20px;"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#width").text("当前窗口宽度： " + getBrowserWidth());
+			$("#height").text("当前窗口高度： " + getBrowserHeight());
+			otherMethod();
+		});
+
+		function getBrowserWidth() {
+			if (window.innerWidth)
+				winWidth = window.innerWidth;
+			else if ((document.body) && (document.body.clientWidth))
+				winWidth = document.body.clientWidth;
+			return winWidth;
+		}
+
+		function getBrowserHeight() {
+			if (window.innerHeight)
+				winHeight = window.innerHeight;
+			else if ((document.body) && (document.body.clientHeight))
+				winHeight = document.body.clientHeight;
+			return winHeight;
+		}
+
+		function otherMethod() {
+			if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+			{
+				winHeight = document.documentElement.clientHeight;
+				winWidth = document.documentElement.clientWidth;
+			}
+			console.log("当前窗口宽度： " + winWidth);
+			console.log("当前窗口高度： " + winHeight);
+		}
+
+	</script>
+</body>
