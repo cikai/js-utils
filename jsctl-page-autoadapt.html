@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>js实现的自适应高度</title>
+
+  <style type="text/css">
+    * {
+     margin:0px;
+     padding:0px;
+   }
+   html, body {
+     height:100%;
+   }
+   #wrap {
+     height:100%;
+   }
+   #header {
+     height:65px;
+     background:#CDCDCD;
+   }
+   #contentWrap {
+     width:300px;
+     float:left;
+     background:green;
+   }
+   #content {
+   }
+   #sidebar {
+     background:white;
+     margin-left:300px;
+     overflow:auto;
+     background:#FFFFCC;
+   }
+   #sidebarContent {
+     margin:2px;
+   }
+   #footer {
+     height:30px;
+     background:#999;
+     margin-top:-30px;
+   }
+ </style>
+ <script>
+  function windowHeight() {
+    var de = document.documentElement;
+    return self.innerHeight||(de && de.clientHeight)||document.body.clientHeight;
+  }
+  window.onload=window.onresize=function(){
+   var wh=windowHeight();
+   document.getElementById("contentWrap").style.height = document.getElementById("sidebar").style.height = (wh-document.getElementById("header").offsetHeight-document.getElementById("footer").offsetHeight)+"px";
+ }
+</script>
+</head>
+<body>
+  <div id="wrap" class="clear">
+    <div id="header">头部</div>
+    <div id="contentWrap">
+      <div id="content">左侧</div>
+    </div>
+    <div id="sidebar">
+      <div id="sidebarContent"> sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+        sidebar<br />
+      </div>
+    </div>
+  </div>
+  <div id="footer">底部</div>
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-3448069-1");
+      pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+  </html>
