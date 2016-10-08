@@ -11,20 +11,24 @@
 	<div id="os" style="font-size: 20px;"></div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#os").text("当前操作系统： " + getOS());
+			$("#os").text("当前画面平台： " + getOS());
 		});
 		function getOS() {
-			var userplat = "other";
-			var sUserAgent = navigator.userAgent;
-			var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
-			var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
-			var isUnix = (navigator.platform == "X11") && !isWin && !isMac;
-			var isLinux = (String(navigator.platform).indexOf("Linux") > -1);
-			if(isWin){userplat = "Windows";}
-			if(isMac){userplat = "Mac OS X";}
-			if(isUnix){userplat = "Unix";}
-			if(isLinux){userplat = "Linux";}
-			return userplat;
+			var plateform = "";
+			if(navigator.userAgent.search(/micromessenger/i)>=0){
+				plateform =  "WeChat";
+			}else if(navigator.userAgent.search(/(alipayclient|aliapp)/i)>=0){
+				plateform =  "Alipay";
+			}else if(navigator.userAgent.search(/(iphone|ipad|ipod)/i)>=0){
+				plateform =  "iOS";
+			}else if(navigator.userAgent.search(/android/i)>=0){
+				plateform =  "Android";
+			}else if(navigator.userAgent.search(/windows phone/i)>=0){
+				plateform =  "WinPhone";
+			}else{
+				plateform =  "PC";
+			}
+			return plateform;
 		}
 	</script>
 </body>
